@@ -4243,7 +4243,8 @@ ac_compiler_gnu=$ac_cv_c_compiler_gnu
 # Check for versions of compilers to be in agreement
 # This is mostly a concern for g++ and gfortran to agree
 # get the g++ version
-GXX_VERSION=$(${CXX} -dumpversion | head -1 | perl -e '$v=<>; if ($v=~/(\d+\.\d+(?:\.\d+)?)/) { print $1; }')
+#GXX_VERSION=$(${CXX} -dumpversion | head -1 | perl -e '$v=<>; if ($v=~/(\d+\.\d+(?:\.\d+)?)/) { print $1; }')
+GXX_VERSION=$(${CXX} -v 2>&1 | grep "gcc version [^(]*" -o | grep -P "[0-9]+\.[0-9]+\.?[0-9]*" -o | head -1 | perl -e '$v=<>; if ($v=~/(\d+\.\d+(?:\.\d+)?)/) { print $1; }')
 if test "x$GXX_VERSION" = "x" ; then
 	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
@@ -4255,7 +4256,8 @@ $as_echo "$as_me: g++ version ${GXX_VERSION}" >&6;}
 fi
 
 # do the same check for gcc
-GCC_VERSION=$(${CC} -dumpversion | head -1 | perl -e '$v=<>; if ($v=~/(\d+\.\d+(?:\.\d+)?)/) { print $1; }')
+#GCC_VERSION=$(${CC} -dumpversion | head -1 | perl -e '$v=<>; if ($v=~/(\d+\.\d+(?:\.\d+)?)/) { print $1; }')
+GCC_VERSION=$(${CC} -v 2>&1 | grep "gcc version [^(]*" -o | grep -P "[0-9]+\.[0-9]+\.?[0-9]*" -o | head -1 | perl -e '$v=<>; if ($v=~/(\d+\.\d+(?:\.\d+)?)/) { print $1; }')
 if test "x$GCC_VERSION" = "x" ; then
         { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
@@ -4267,7 +4269,8 @@ $as_echo "$as_me: gcc version ${GCC_VERSION}" >&6;}
 fi
 
 # do the same check for gfortran
-GFORTRAN_VERSION=$(${FC} -dumpversion | head -1 | perl -e '$v=<>; if ($v=~/(\d+\.\d+(?:\.\d+)?)/) { print $1; }')
+#GFORTRAN_VERSION=$(${FC} -dumpversion | head -1 | perl -e '$v=<>; if ($v=~/(\d+\.\d+(?:\.\d+)?)/) { print $1; }')
+GFORTRAN_VERSION=$(${FC} -v 2>&1 | grep "gcc version [^(]*" -o | grep -P "[0-9]+\.[0-9]+\.?[0-9]*" -o | head -1 | perl -e '$v=<>; if ($v=~/(\d+\.\d+(?:\.\d+)?)/) { print $1; }')
 if test "x$GFORTRAN_VERSION" = "x" ; then
         { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
