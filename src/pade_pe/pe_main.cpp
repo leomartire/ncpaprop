@@ -606,8 +606,9 @@ void marchField(complex<double> *psi_o,complex<double> *psi_dr,double *abs_layer
       taper   = (1.0-rdx_factor)/(1.0+exp(rdx_slope*(alt_int[i]-rdx_height)))+rdx_factor;
       //damping = exp(-abs_layer[i]*dr);
       damping = exp(-abs_layer[i]*dr) * exp(-taper*abs_sb[i]*1.0*dr);
-      real(psi_o[i]) = real(psi_dr[i])*damping;
-      imag(psi_o[i]) = imag(psi_dr[i])*damping;
+      //real(psi_o[i]) = real(psi_dr[i])*damping;
+      //imag(psi_o[i]) = imag(psi_dr[i])*damping;
+      psi_o[i] = complex<double>(real(psi_dr[i])*damping, imag(psi_dr[i])*damping);
   }
 }
 

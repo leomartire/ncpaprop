@@ -18,23 +18,23 @@ namespace NCPA {
 	class JetProfile : public NCPA::AtmosphericProfile {
 
 		private:
-			const static double A1 =     -3.9082017e-2;
-			const static double A2 =     -1.1526465e-3;
-			const static double A3 =     3.2891937e-5;
-			const static double A4 =     -2.0494958e-7;
-			const static double A5 =     -4.7087295e-2;
-			const static double A6 =     1.2506387e-3;
-			const static double A7 =     -1.5194498e-5;
-			const static double A8 =     6.518877e-8;
+			constexpr static double A1 =     -3.9082017e-2;
+			constexpr static double A2 =     -1.1526465e-3;
+			constexpr static double A3 =     3.2891937e-5;
+			constexpr static double A4 =     -2.0494958e-7;
+			constexpr static double A5 =     -4.7087295e-2;
+			constexpr static double A6 =     1.2506387e-3;
+			constexpr static double A7 =     -1.5194498e-5;
+			constexpr static double A8 =     6.518877e-8;
 
-			const static double B1 =     -4.9244637e-3;
-			const static double B2 =     -1.2984142e-6;
-			const static double B3 =     -1.5701595e-6;
-			const static double B4 =     1.5535974e-8;
-			const static double B5 =     -2.7221769e-2;
-			const static double B6 =     4.247473e-4;
-			const static double B7 =     -3.958318e-6;
-			const static double B8 =     1.7295795e-8;
+			constexpr static double B1 =     -4.9244637e-3;
+			constexpr static double B2 =     -1.2984142e-6;
+			constexpr static double B3 =     -1.5701595e-6;
+			constexpr static double B4 =     1.5535974e-8;
+			constexpr static double B5 =     -2.7221769e-2;
+			constexpr static double B6 =     4.247473e-4;
+			constexpr static double B7 =     -3.958318e-6;
+			constexpr static double B8 =     1.7295795e-8;
 
 			double  v_strat, v_jet, v_noct,
 				z_strat, z_jet, z_noct,
