@@ -373,8 +373,14 @@ int NCPA::SolveWMod::computeModes() {
         k_min = 2*Pi*freq/c_max;
         k_max = 2*Pi*freq/c_min;
     }
+    
+    // Trying to specify min/max phase velocity by hand.
+    //k_max = 2*Pi*freq/208.54; k_min = 2*Pi*freq/215.22;
 
     i = getNumberOfModes(Nz_grid,dz,diag,k_min,k_max,&nev);
+    
+    // Trying to specify number of modes/eigencouples by hand.
+    //nev = 4;
     
     // abort if no modes are found
     // disabled 20170802 DV
@@ -588,7 +594,7 @@ int NCPA::SolveWMod::computeModes() {
         }
     }
 
-    // select modes and do perturbation
+    // select modes (those such that k_min <= k <= k_max) and do perturbation
     doSelect(Nz_grid, nconv, k_min, k_max, kH, v, k_s, v_s, &select_modes);  
     doPerturb(Nz_grid, z_min, dz, select_modes, freq, atm_profile, k_s, v_s, alpha, k_pert);
     //cout << "Found " << select_modes << " relevant modes" << endl;
