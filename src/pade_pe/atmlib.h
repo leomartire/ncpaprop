@@ -4,8 +4,8 @@
 //#include <string>
 
 #define PI acos(-1.0)
-#define GAMMA 1.4
-#define GASCONSTANT 287.058
+#define GAMMA 1.35
+#define GASCONSTANT 191.842634979233964006
 
 #include <iostream>
 

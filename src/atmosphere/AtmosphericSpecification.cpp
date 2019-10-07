@@ -6,7 +6,7 @@
 
 #define GAM 1.35
 #define PI 3.14159
-#define R 287.0
+#define R 191.842634979233964006
 
 
 NCPA::AtmosphericSpecification::~AtmosphericSpecification() { 
