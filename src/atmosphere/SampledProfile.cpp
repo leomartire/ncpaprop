@@ -10,7 +10,7 @@
 #include "gsl/gsl_spline.h"
 
 
-#define GAM 1.4
+#define GAM 1.35
 #define PI 3.14159
 #define R 287.0
 

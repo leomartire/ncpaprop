@@ -7,6 +7,7 @@
 #include "slepceps.h"
 #include "slepcst.h"
 
+#define GAM 1.35
 
 #ifndef Pi
 #define Pi 3.141592653589793
@@ -685,7 +686,7 @@ int NCPA::SolveWMod::getAbsorption(int n, double dz, SampledProfile *p, double f
   theta[3]= 1037;                                   // Charact. temperature (O3)
 
 	//gamma   = 1.371 + 2.46E-04*T_z - 6.436E-07*pow(T_z,2) + 5.2E-10*pow(T_z,3) - 1.796E-13*pow(T_z,4) + 2.182E-17*pow(T_z,5);
-	gamma   = 1.4;
+	gamma   = GAM;
 			 
   for (ii=0; ii<n; ii++) {
 			z       = ii*dz/1000.0;		// km
@@ -839,7 +840,7 @@ int NCPA::SolveWMod::getAbsorption(int n, double dz, SampledProfile *p, double f
     theta[3]= 1037;                                   // Charact. temperature (O3)
 
 	  //gamma   = 1.371 + 2.46E-04*T_z - 6.436E-07*pow(T_z,2) + 5.2E-10*pow(T_z,3) - 1.796E-13*pow(T_z,4) + 2.182E-17*pow(T_z,5);
-	  gamma   = 1.4;
+	  gamma   = GAM;
 			   
     for (ii=0; ii<n; ii++) {
 			  z       = ii*dz/1000.0;	// km	AGL		
@@ -1030,7 +1031,7 @@ int NCPA::SolveWMod::getModalTrace(int nz, double z_min, double sourceheight, do
 
   //FILE *profile= fopen("profile.int", "w");
 
-  gamma    = 1.4;
+  gamma    = GAM;
   z_min_km = z_min/1000.0;
   dz_km    = dz/1000.0;
   omega    = 2*Pi*freq;
@@ -1220,7 +1221,7 @@ int NCPA::SolveWMod::doPerturb(int nz, double z_min, double dz, int n_modes, dou
   double z_km, dz_km;
   double omega = 2*Pi*freq;
   complex<double> I (0.0, 1.0);
-  gamma = 1.4;
+  gamma = GAM;
   // gamma = 1.371 + 2.46E-04*T - 6.436E-07*pow(T,2) + 5.2E-10*pow(T,3) - 1.796E-13*pow(T,4) + 2.182E-17*pow(T,5);
   dz_km = dz/1000.0;
 
@@ -1256,7 +1257,7 @@ int NCPA::SolveModNB::doPerturb(int nz, double z_min, double dz, int n_modes, do
   double rdx_height = 90.0E03;
   complex<double> I (0.0, 1.0);
 
-  gamma = 1.4;
+  gamma = GAM;
   dz_km = dz/1000.0;
   for (j=0; j<n_modes; j++) {
       absorption = 0.0;

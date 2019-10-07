@@ -7,6 +7,8 @@
 #include "slepceps.h"
 #include "slepcst.h"
 
+#define GAM 1.35
+
 #ifndef Pi
 #define Pi 3.141592653589793
 #endif
@@ -710,7 +712,7 @@ int NCPA::SolveCModNB::getAbsorption(int n, double dz, SampledProfile *p, double
   theta[3]= 1037;                                   // Charact. temperature (O3)
 
 	//gamma   = 1.371 + 2.46E-04*T_z - 6.436E-07*pow(T_z,2) + 5.2E-10*pow(T_z,3) - 1.796E-13*pow(T_z,4) + 2.182E-17*pow(T_z,5);
-	gamma   = 1.4;
+	gamma   = GAM;
 			 
   for (ii=0; ii<n; ii++) {
 			z       = ii*dz/1000.0;		// km
@@ -860,7 +862,7 @@ int NCPA::SolveCModNB::getAbsorption(int n, double dz, SampledProfile *p, double
     theta[3]= 1037;                                   // Charact. temperature (O3)
 
 	  //gamma   = 1.371 + 2.46E-04*T_z - 6.436E-07*pow(T_z,2) + 5.2E-10*pow(T_z,3) - 1.796E-13*pow(T_z,4) + 2.182E-17*pow(T_z,5);
-	  gamma   = 1.4;
+	  gamma   = GAM;
 			   
     for (ii=0; ii<n; ii++) {
 			  z       = ii*dz/1000.0;	// km	AGL		
@@ -1069,7 +1071,7 @@ int NCPA::SolveCModNB::getCModalTrace(\
   double *ceffz;
   ceffz = new double [nz];
   
-  gamma    = 1.4;  
+  gamma    = GAM;  
   // gamma = 1.371 + 2.46E-04*T - 6.436E-07*pow(T,2) + 5.2E-10*pow(T,3) - 1.796E-13*pow(T,4) + 2.182E-17*pow(T,5);
 
   z_km     = z_min_km;
