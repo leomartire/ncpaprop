@@ -191,11 +191,11 @@ double NCPA::normalizeLon(double lon) {
 
 
 double NCPA::deg2km( double angular ) {
-	return 2 * PI * 6371 / 360.0 * angular;
+	return 2 * PI * 3389.5 / 360.0 * angular;
 }
 
 double NCPA::km2deg( double linear ) {
-	return linear * 360.0 / (2.0 * PI * 6371 );
+	return linear * 360.0 / (2.0 * PI * 3389.5 );
 }
 
 void NCPA::great_circle( double startlat, double startlon, double azimuth, 
@@ -203,12 +203,12 @@ void NCPA::great_circle( double startlat, double startlon, double azimuth,
 	
 	double lat1 = NCPA::deg2rad( startlat );
 	double lon1 = NCPA::deg2rad( startlon );
-	//double d = range_km / 6371.0;
+	//double d = range_km / 3389.5;
 	double brng = NCPA::deg2rad( azimuth );
 	pathlat[0] = startlat;
 	pathlon[0] = startlon;
 	for (int i = 1; i < length; i++) {
-		double d = (range_km / (length-1)) * i / 6371.0;
+		double d = (range_km / (length-1)) * i / 3389.5;
 		pathlat[ i ] = NCPA::rad2deg( 
 				std::asin( std::sin(lat1) * std::cos(d) + std::cos(lat1) * std::sin(d) * std::cos(brng) ) 
 			);
@@ -360,7 +360,7 @@ double NCPA::sphrange( double lat1_deg, double lon1_deg, double lat2_deg, double
 
     // calculate distance
     dist = acos( c1 * c2 + s1 * s2 * cd ) * 180.0 / PI;
-    return dist * 6371 * 2 * PI / 360.0;
+    return dist * 3389.5 * 2 * PI / 360.0;
 }
 */
 
@@ -375,7 +375,7 @@ double NCPA::earthradius( double lat ) {
 			   + b*b * std::sin( lat );
 	return std::sqrt( numerator / denominator );
 */
-	return 6371.009;
+	return 3389.5;
 }
 
 void NCPA::xy2latlon( double x, double y, double lat0, double lon0, double &newlat, double &newlon ) {
@@ -427,7 +427,7 @@ NCPA::Location NCPA::xy2latlon( double x, double y, double lat0, double lon0 ) {
 	return loc;
 	
 	/*
-	double R = 6371.0;   //earthradius( lat0 );
+	double R = 3389.5;   //earthradius( lat0 );
 	lat0 = deg2rad( lat0 );
 	lon0 = deg2rad( lon0 );
 
