@@ -18,7 +18,9 @@
 #include "linearRay3DStrat.h"
 #include "nonlinearRay.h"
 
-const double GAMMA = 1.40;
+#define GAM 1.35
+
+const double GAMMA = GAM;
 const double STEP_MAX = 100.0;   //maximum step size allowed
 const int NUMPTS = pow(2.0,12);  //number of poins in the time/frequency domains to save
 

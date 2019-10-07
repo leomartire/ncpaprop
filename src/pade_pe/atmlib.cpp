@@ -8,6 +8,8 @@
 #include <gsl/gsl_interp.h>
 #include <gsl/gsl_spline.h>
 
+#define GAM 1.35
+
 using namespace std;
 typedef unsigned char byte;
 
@@ -251,7 +253,7 @@ void AtmLibrary::writeProfile( char *fid, int n_levels, double zmin, double *alt
   theta[2]= 915;                                    // Charact. temperature (CO2)
   theta[3]= 1037;                                   // Charact. temperature (O3)
 
-  gamma   = 1.4;
+  gamma   = GAM;
   for (ii=0; ii<n; ii++) {
    z       = alt[ii]/1000; // in km
    T_z     = T[ii];
@@ -403,7 +405,7 @@ void AtmLibrary::writeProfile( char *fid, int n_levels, double zmin, double *alt
   theta[2]= 915;                                    // Charact. temperature (CO2)
   theta[3]= 1037;                                   // Charact. temperature (O3)
 
-  gamma   = 1.4;
+  gamma   = GAM;
   for (ii=0; ii<n; ii++) {
    z       = alt[ii]/1000; // in km
    T_z     = T[ii];

@@ -18,9 +18,11 @@
 #include "linearRay3DStrat.h"
 #include "nonlinearRay.h"
 
+#define GAM 1.35
+
 //#define PI 3.141592653589793;
 
-const double GAMMA    = 1.40;
+const double GAMMA    = GAM;
 const double STEP_MAX = 100.0;   //maximum step size allowed
 const int NUMPTS      = pow(2.0,12);  // number of poins in the time/frequency domains to save
 
@@ -381,6 +383,7 @@ waveform blastmodel( int nn, double period, double posPhaseDur, double pkOverpre
 {
     waveform wf;
     double Po = LR.rh[0] * pow( LR.cc[0],2 )/1.4;
+    // gamma?
     int j = -nn/2;
     for( int i=0; i<nn; i++ )
     {
@@ -499,6 +502,7 @@ blastParam pkOverpress( double distance, double yield, linray LR )
     fact2 = pow( 1 + fact1, 5.0/12 );
     fact3 = pow( R, 9.0/4 );
     bp.pks = 1.0/1.4*LR.rh[0]* pow( LR.cc[0], 2 ) * 9.7*fact2/fact3;
+    // gamma?
     
     //printf("R=%g\n", R);
     //printf("LR.rh[0]=%g\n", LR.rh[0]);
@@ -521,6 +525,7 @@ blastParam pkOverpress( double distance, double yield, linray LR )
     fact3 = sqrt( 1 + pow( R/0.32, 2 ) );
     fact4 = sqrt( 1 + pow( R/1.35, 2 ) );
     bp.pks = 1.0/1.4*LR.rh[0]* pow( LR.cc[0], 2 )* fact1/( fact2*fact3*fact4 );
+    // gamma?
     
     fact1 = 980*( 1 + pow( R/0.54, 10) );
     fact2 = 1 + pow( R/0.02, 3 );

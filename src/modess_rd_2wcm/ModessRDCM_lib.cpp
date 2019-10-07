@@ -16,6 +16,8 @@
 #include <ctime>
 //#include <vector>
 
+#define GAM 1.35
+
 #ifndef Pi
 #define Pi 3.141592653589793
 #endif
@@ -1449,7 +1451,7 @@ int getCeffMinMax(NCPA::SampledProfile *p, double *ceffmin, double *ceffmax) {
   nz  = p->nz();
   azi = p->getPropagationAzimuth()*Pi/180.0;
 
-  double gamma = 1.4;
+  double gamma = GAM;
 
   u    = new double [nz];
   v    = new double [nz];
