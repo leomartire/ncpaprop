@@ -446,6 +446,7 @@ int NCPA::SolveModNB::computeModes() {
         es << "This ground impedance model is not implemented yet: " << gnd_imp_model;
         throw invalid_argument(es.str());
     }	   
+    cout << "Computed ground admittance Y = 1/Z = " << admittance << ".";
 
     //
     // Get the main diagonal and the number of modes
