@@ -1099,8 +1099,12 @@ int NCPA::SolveCModNB::getCModalTrace(\
       z_km += dz_km;		
   }
   
+  //admittance = 9.6254115689013440e-05 * sqrt(freq); //test
   bnd_cnd = (1./(dz*admittance+1))/(dz*dz); // bnd cnd assuming centered fd
   diag[0] = bnd_cnd + diag[0];
+  //diag[0] = diag[0] + ((1./(dz*(2.3937425169853647e-05-9.3230115645705604e-05*I)*sqrt(freq)+1.))/(pow(dz,2))); // lower admittance, lower attenuation
+  //diag[0] = diag[0] + ((1./(dz*(7.5696784856580496e-04-2.9481951196132939e-03*I)*sqrt(freq)+1.))/(pow(dz,2))); // higher admittance, higher attenuation
+  //diag[0] = diag[0] + ((1./(dz*(7.5696784856580473e-07-2.9481951196132935e-06*I)*sqrt(freq)+1.))/(pow(dz,2))); // higher admittance, higher attenuation
 
   if ((fabs(sourceheight)<1.0e-3) && (fabs(receiverheight)<1.0e-3) && (!turnoff_WKB)) {
     //
