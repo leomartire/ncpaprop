@@ -363,6 +363,12 @@ int NCPA::SolveWMod::computeModes() {
         es << "This ground impedance model is not implemented yet: " << gnd_imp_model;
         throw invalid_argument(es.str());
     }	    
+    //admittance = 0.0372752652806677;
+    //admittance = 0.372752652806677;
+    //admittance = 3.72752652806677;
+    cout << "Computed ground admittance Y = 1/Z = " << admittance << "." << endl;
+    cout << "  atm_profile->drhodz(z_min/1000.0) = " << atm_profile->drhodz(z_min/1000.0) << "." << endl;
+    cout << "  atm_profile->rho(z_min/1000.0) = " << atm_profile->rho(z_min/1000.0) << "." << endl;
 
     //
     // Get the main diagonal and the number of modes
